@@ -1,0 +1,52 @@
+package br.uel.restaurante;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+
+import java.io.Serializable;
+import java.util.List;
+
+@Entity
+@Table(name="restaurante")
+public class Restaurante implements Serializable {
+
+    @Id
+
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(unique = true)
+    @NotBlank(message = "O nome é obrigatório")
+    private String nome;
+
+    public int getId() {
+        return id;
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL)
+    private List<ItemCardapio> cardapios;
+
+
+    public List<ItemCardapio> getCardapios() {
+        return cardapios;
+    }
+
+    public void setCardapios(List<ItemCardapio> cardapios) {
+        this.cardapios = cardapios;
+    }
+}

@@ -1,0 +1,16 @@
+<form action="#"
+      th:action="@{/atualizar-item-cardapio/{restauranteId}/{itemCardapioId}(restauranteId=${restaurante.id},itemCardapioId=${itemCardapio.id})}"
+      th:object="${itemCardapio}"
+      method="post">
+  <label for="nome">Nome: </label>
+  <input type="text" th:field="*{nome}" id="nome">
+  <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+  <br/>
+  <label for="nome">Descricao: </label>
+  <input type="text" th:field="*{descricao}" id="descricao">
+  <br/>
+  <label for="nome">Preco: </label>
+  <input type="text" th:field="*{preco}" id="preco">
+  <br/>
+  <input type="submit" value="Atualizar">
+</form>

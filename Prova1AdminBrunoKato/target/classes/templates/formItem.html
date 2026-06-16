@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Novo Item de Cardápio</title>
+</head>
+<body>
+<h2>Novo Item de Cardápio para o Restaurante <span th:text="${restaurante.nome}"></span></h2>
+<form th:action="@{'/restaurantes/' + ${restaurante.id}}" th:object="${item}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" />
+    <label>Descrição:</label>
+    <input type="text" th:field="*{descricao}" />
+    <label>Preço:</label>
+    <input type="text" th:field="*{preco}" />
+    <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

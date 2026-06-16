@@ -1,0 +1,29 @@
+<div th:switch="${itemCardapios}">
+    <h2 th:case="null">Ainda não há itens do cardápio!</h2>
+    <div th:case="*">
+        <h2>Cardapio</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Preco</th>
+                <th>Editar</th>
+                <th>Remover</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="itemCardapio : ${itemCardapios}">
+                <td th:text="${itemCardapio.nome}"></td>
+                <td th:text="${itemCardapio.descricao}"></td>
+                <td th:text="${itemCardapio.preco}"></td>
+                <td><a th:href="@{/editar-item-cardapio/{restauranteId}/{itemCardapioId}(restauranteId=${restaurante.id},itemCardapioId=${itemCardapio.id})}">Editar</a></td>
+                <td><a th:href="@{/remover-item-cardapio/{restauranteId}/{itemCardapioId}(restauranteId=${restaurante.id},itemCardapioId=${itemCardapio.id})}">Remover</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a th:href="@{/novo-item-cardapio/{id}(id=${restaurante.id})}">Adicionar um novo item ao cardápio</a></p>
+    <p><a th:href="@{/index}">Listar restaurantes</a></p>
+</div>
+

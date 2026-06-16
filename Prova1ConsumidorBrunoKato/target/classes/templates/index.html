@@ -1,0 +1,26 @@
+<div th:if="${erroNomeExiste != null}" class="alert" role="alert">
+    <p th:text="${erroNomeExiste}"></p>
+</div>
+
+<div th:switch="${restaurantes}">
+    <h2 th:case="null">Ainda não há restaurantes!</h2>
+    <div th:case="*">
+        <h2>Restaurantes</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cardapio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="restaurante : ${restaurantes}">
+                <td th:text="${restaurante.nome}"></td>
+                <td><a th:href="@{/cardapio/{id_restaurante}(id_restaurante=${restaurante.id})}">Cardápio</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/pedido">Listar Pedido</a></p>
+</div>
+

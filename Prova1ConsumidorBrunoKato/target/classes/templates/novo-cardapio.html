@@ -1,0 +1,13 @@
+<form action="#" th:action="@{/adicionar-cardapio}" th:object="${itemCardapio}" method="post">
+    <label for="nome">Nome: </label>
+    <input type="text" th:field="*{nome}" id="nome">
+    <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+    <br/>
+    <label for="preco">Preco:</label>
+    <input type="number" th:field="*{preco}" id="preco">
+    <br/>
+    <label for="descricao">Descricao:</label>
+    <input type="text" th:field="*{descricao}" id="descricao">
+    <br/>
+    <input type="submit" value="Adicionar">
+</form>

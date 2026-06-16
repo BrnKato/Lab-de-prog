@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Novo Restaurante</title>
+</head>
+<body>
+<h2>Novo Restaurante</h2>
+<form th:action="@{/restaurantes/novo}" th:object="${restaurante}" method="post">
+  <label>Nome:</label>
+  <input type="text" th:field="*{nome}" />
+  <button type="submit">Salvar</button>
+</form>
+</body>
+</html>

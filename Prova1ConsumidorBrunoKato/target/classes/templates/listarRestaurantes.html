@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Listar Restaurantes</title>
+</head>
+<body>
+<h2>Restaurantes</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+  </tr>
+  <tr th:each="restaurante : ${restaurantes}">
+    <td th:text="${restaurante.id}"></td>
+    <td th:text="${restaurante.nome}"></td>
+  </tr>
+</table>
+<a href="/restaurantes/novo">Adicionar Restaurante</a>
+</body>
+</html>

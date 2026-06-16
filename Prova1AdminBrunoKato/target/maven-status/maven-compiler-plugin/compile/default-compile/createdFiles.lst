@@ -1,0 +1,7 @@
+br\uel\restaurante\ItemCardapio.class
+br\uel\restaurante\ItemCardapioController.class
+br\uel\restaurante\ItemCardapioRepository.class
+br\uel\restaurante\Restaurante.class
+br\uel\restaurante\RestauranteApplication.class
+br\uel\restaurante\RestauranteRepository.class
+br\uel\restaurante\RestauranteController.class

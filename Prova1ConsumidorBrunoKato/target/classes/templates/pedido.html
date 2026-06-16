@@ -1,0 +1,35 @@
+<div th:switch="${sessionPedido}">
+    <h2 th:case="null">Ainda não há pedidos!</h2>
+    <div th:case="*">
+        <h2>Pedidos</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Restaurante</th>
+                <th>Nome</th>
+                <th>Preco</th>
+                <th>Quantidade</th>
+                <th>Remover</th>
+                <th>Subtrair</th>
+                <th>Somar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="itemPedido : ${sessionPedido}">
+                <td th:text="${itemPedido.descricao}"></td>
+                <td th:text="${itemPedido.nome}"></td>
+                <td th:text="${itemPedido.preco}"></td>
+                <td th:text="${itemPedido.quantidade}"></td>
+                <td><a th:href="@{/pedido/remover/{id}(id=${itemPedido.id})}">Remover</a></td>
+                <td><a th:href="@{/pedido/subtrair/{id}(id=${itemPedido.id})}">Subtrair</a></td>
+                <td><a th:href="@{/pedido/somar/{id}(id=${itemPedido.id})}">Somar</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <h3>Total do Pedido: <span th:text="${precoTotal}"></span></h3>
+        </div>
+    </div>
+    <p><a href="/index">Listar Restaurantes</a></p>
+</div>
